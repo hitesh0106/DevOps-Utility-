@@ -1,0 +1,942 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevOps Utility Hub | By Hitesh</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- LOADING SCREEN -->
+    <div id="loader" class="loader">
+        <div class="loader-content">
+            <div class="loader-icon">
+                <i class="fas fa-terminal"></i>
+            </div>
+            <div class="loader-text">Initializing DevOps Toolkit...</div>
+            <div class="loader-bar">
+                <div class="loader-progress"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PARTICLES BACKGROUND -->
+    <canvas id="particles"></canvas>
+
+    <!-- NAVBAR -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-cube"></i>
+                <span>DevOps<span class="highlight">Hub</span></span>
+            </div>
+            <div class="nav-links" id="navLinks">
+                <a href="#home" class="nav-link active"><i class="fas fa-home"></i> Home</a>
+                <a href="#tools" class="nav-link"><i class="fas fa-tools"></i> Tools</a>
+                <a href="#yaml" class="nav-link"><i class="fas fa-code"></i> YAML</a>
+                <a href="#docker" class="nav-link"><i class="fab fa-docker"></i> Docker</a>
+                <a href="#yaml-json" class="nav-link"><i class="fas fa-exchange-alt"></i> Converters</a>
+                <a href="#docker" class="nav-link"><i class="fas fa-cogs"></i> Generators</a>
+                <a href="#subnet" class="nav-link"><i class="fas fa-network-wired"></i> Network</a>
+                <a href="#about" class="nav-link"><i class="fas fa-info-circle"></i> About</a>
+            </div>
+            <div class="nav-actions">
+                <button class="theme-toggle" id="themeToggle" title="Toggle Theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <a href="https://github.com/yourusername/devops-utility-hub" target="_blank" class="github-btn">
+                    <i class="fab fa-github"></i> GitHub
+                </a>
+            </div>
+            <button class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <div class="hero-badge">
+                <i class="fas fa-rocket"></i> Open Source DevOps Tools
+            </div>
+            <h1 class="hero-title">
+                DevOps <span class="gradient-text">Utility</span> Hub
+            </h1>
+            <p class="hero-subtitle">
+                10+ powerful tools for DevOps engineers. YAML validator, Docker generator,
+                Network utilities, Converters & more — all in your browser.
+            </p>
+            <div class="hero-stats">
+                <div class="stat">
+                    <span class="stat-number" data-count="10">0</span>+
+                    <span class="stat-label">Tools</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number" data-count="0">0</span>
+                    <span class="stat-label">Backend Needed</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number" data-count="100">0</span>%
+                    <span class="stat-label">Free</span>
+                </div>
+            </div>
+            <div class="hero-buttons">
+                <a href="#tools" class="btn btn-primary">
+                    <i class="fas fa-tools"></i> Explore Tools
+                </a>
+                <a href="#about" class="btn btn-outline">
+                    <i class="fas fa-info-circle"></i> Learn More
+                </a>
+            </div>
+            <div class="hero-terminal">
+                <div class="terminal-header">
+                    <div class="terminal-dots">
+                        <span class="dot red"></span>
+                        <span class="dot yellow"></span>
+                        <span class="dot green"></span>
+                    </div>
+                    <span class="terminal-title">devops-hub ~ terminal</span>
+                </div>
+                <div class="terminal-body">
+                    <div class="terminal-line">
+                        <span class="prompt">$</span>
+                        <span class="command" id="typingText"></span>
+                        <span class="cursor">|</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TOOLS OVERVIEW -->
+    <section id="tools" class="section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge"><i class="fas fa-th"></i> All Tools</span>
+                <h2 class="section-title">Powerful DevOps <span class="gradient-text">Toolkit</span></h2>
+                <p class="section-desc">Everything you need, right in your browser. No installation required.</p>
+            </div>
+            <div class="tools-grid">
+                <a href="#yaml" class="tool-card" data-tool="yaml">
+                    <div class="tool-icon yaml-icon"><i class="fas fa-file-code"></i></div>
+                    <h3>YAML Validator</h3>
+                    <p>Validate & format YAML with detailed error reporting</p>
+                    <span class="tool-tag">Validation</span>
+                </a>
+                <a href="#yaml-json" class="tool-card" data-tool="converter">
+                    <div class="tool-icon converter-icon"><i class="fas fa-exchange-alt"></i></div>
+                    <h3>YAML ↔ JSON</h3>
+                    <p>Convert between YAML and JSON formats instantly</p>
+                    <span class="tool-tag">Converter</span>
+                </a>
+                <a href="#docker" class="tool-card" data-tool="docker">
+                    <div class="tool-icon docker-icon"><i class="fab fa-docker"></i></div>
+                    <h3>Dockerfile Generator</h3>
+                    <p>Generate production-ready Dockerfiles</p>
+                    <span class="tool-tag">Docker</span>
+                </a>
+                <a href="#compose" class="tool-card" data-tool="compose">
+                    <div class="tool-icon compose-icon"><i class="fas fa-layer-group"></i></div>
+                    <h3>Compose Generator</h3>
+                    <p>Create Docker Compose files with ease</p>
+                    <span class="tool-tag">Docker</span>
+                </a>
+                <a href="#base64" class="tool-card" data-tool="base64">
+                    <div class="tool-icon base64-icon"><i class="fas fa-lock"></i></div>
+                    <h3>Base64 Encoder</h3>
+                    <p>Encode & decode Base64 for K8s secrets</p>
+                    <span class="tool-tag">Encoding</span>
+                </a>
+                <a href="#password" class="tool-card" data-tool="password">
+                    <div class="tool-icon password-icon"><i class="fas fa-key"></i></div>
+                    <h3>Password Generator</h3>
+                    <p>Generate secure passwords & secrets</p>
+                    <span class="tool-tag">Security</span>
+                </a>
+                <a href="#gitignore" class="tool-card" data-tool="gitignore">
+                    <div class="tool-icon gitignore-icon"><i class="fab fa-git-alt"></i></div>
+                    <h3>.gitignore Generator</h3>
+                    <p>Create .gitignore for any tech stack</p>
+                    <span class="tool-tag">Git</span>
+                </a>
+                <a href="#nginx" class="tool-card" data-tool="nginx">
+                    <div class="tool-icon nginx-icon"><i class="fas fa-server"></i></div>
+                    <h3>Nginx Config</h3>
+                    <p>Generate Nginx configurations quickly</p>
+                    <span class="tool-tag">Server</span>
+                </a>
+                <a href="#subnet" class="tool-card" data-tool="subnet">
+                    <div class="tool-icon subnet-icon"><i class="fas fa-network-wired"></i></div>
+                    <h3>Subnet Calculator</h3>
+                    <p>Calculate subnets, IPs, and CIDR ranges</p>
+                    <span class="tool-tag">Network</span>
+                </a>
+                <a href="#cron" class="tool-card" data-tool="cron">
+                    <div class="tool-icon cron-icon"><i class="fas fa-clock"></i></div>
+                    <h3>Cron Expression</h3>
+                    <p>Build & understand cron expressions</p>
+                    <span class="tool-tag">Scheduling</span>
+                </a>
+                <a href="#jwt" class="tool-card" data-tool="jwt">
+                    <div class="tool-icon jwt-icon"><i class="fas fa-id-badge"></i></div>
+                    <h3>JWT Decoder</h3>
+                    <p>Decode and inspect JWT tokens</p>
+                    <span class="tool-tag">Security</span>
+                </a>
+                <a href="#regex" class="tool-card" data-tool="regex">
+                    <div class="tool-icon regex-icon"><i class="fas fa-search"></i></div>
+                    <h3>Regex Tester</h3>
+                    <p>Test regular expressions in real-time</p>
+                    <span class="tool-tag">Utility</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- YAML VALIDATOR & FORMATTER -->
+    <section id="yaml" class="section section-dark">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge"><i class="fas fa-file-code"></i> YAML Tools</span>
+                <h2 class="section-title">YAML <span class="gradient-text">Validator</span> & Formatter</h2>
+                <p class="section-desc">Paste your YAML and validate, format, or minify it instantly.</p>
+            </div>
+            <div class="tool-workspace">
+                <div class="workspace-header">
+                    <div class="workspace-tabs">
+                        <button class="ws-tab active" data-tab="validate">Validate</button>
+                        <button class="ws-tab" data-tab="format">Format</button>
+                        <button class="ws-tab" data-tab="minify">Minify</button>
+                    </div>
+                    <div class="workspace-actions">
+                        <button class="ws-btn" id="yamlSample"><i class="fas fa-file-import"></i> Sample</button>
+                        <button class="ws-btn" id="yamlClear"><i class="fas fa-trash"></i> Clear</button>
+                        <button class="ws-btn primary" id="yamlValidate"><i class="fas fa-check"></i> Validate</button>
+                    </div>
+                </div>
+                <div class="workspace-body">
+                    <div class="editor-panel">
+                        <div class="editor-header">
+                            <span><i class="fas fa-edit"></i> Input YAML</span>
+                            <button class="copy-btn" data-target="yamlInput"><i class="fas fa-copy"></i></button>
+                        </div>
+                        <div class="editor-wrapper">
+                            <div class="line-numbers" id="yamlLineNumbers">1</div>
+                            <textarea id="yamlInput" class="editor-textarea" placeholder="Paste your YAML here...
+Example:
+apiVersion: v1
+kind: Pod
+metadata:
+  name: my-pod
+  labels:
+    app: web
+spec:
+  containers:
+    - name: nginx
+      image: nginx:latest
+      ports:
+        - containerPort: 80" spellcheck="false"></textarea>
+                        </div>
+                    </div>
+                    <div class="result-panel">
+                        <div class="editor-header">
+                            <span><i class="fas fa-check-circle"></i> Result</span>
+                            <button class="copy-btn" data-target="yamlOutput"><i class="fas fa-copy"></i></button>
+                        </div>
+                        <div id="yamlResult" class="result-content">
+                            <div class="result-placeholder">
+                                <i class="fas fa-arrow-left"></i>
+                                <p>Enter YAML and click Validate</p>
+                            </div>
+                        </div>
+                        <textarea id="yamlOutput" class="editor-textarea hidden" readonly spellcheck="false"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- YAML ↔ JSON CONVERTER -->
+    <section id="yaml-json" class="section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge"><i class="fas fa-exchange-alt"></i> Converter</span>
+                <h2 class="section-title">YAML ↔ JSON <span class="gradient-text">Converter</span></h2>
+                <p class="section-desc">Convert between YAML and JSON formats seamlessly.</p>
+            </div>
+            <div class="converter-workspace">
+                <div class="converter-panel">
+                    <div class="editor-header">
+                        <span><i class="fas fa-file-code"></i> YAML</span>
+                        <button class="copy-btn" data-target="converterYaml"><i class="fas fa-copy"></i></button>
+                    </div>
+                    <textarea id="converterYaml" class="editor-textarea" placeholder="Paste YAML here..." spellcheck="false"></textarea>
+                </div>
+                <div class="converter-controls">
+                    <button class="convert-btn" id="yamlToJson" title="YAML to JSON">
+                        <i class="fas fa-arrow-right"></i>
+                        <span>YAML → JSON</span>
+                    </button>
+                    <button class="convert-btn" id="jsonToYaml" title="JSON to YAML">
+                        <i class="fas fa-arrow-left"></i>
+                        <span>JSON → YAML</span>
+                    </button>
+                    <button class="convert-btn clear" id="converterClear" title="Clear All">
+                        <i class="fas fa-trash"></i>
+                        <span>Clear</span>
+                    </button>
+                </div>
+                <div class="converter-panel">
+                    <div class="editor-header">
+                        <span><i class="fas fa-file-alt"></i> JSON</span>
+                        <button class="copy-btn" data-target="converterJson"><i class="fas fa-copy"></i></button>
+                    </div>
+                    <textarea id="converterJson" class="editor-textarea" placeholder="Paste JSON here..." spellcheck="false"></textarea>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DOCKERFILE GENERATOR -->
+    <section id="docker" class="section section-dark">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge"><i class="fab fa-docker"></i> Docker</span>
+                <h2 class="section-title">Dockerfile <span class="gradient-text">Generator</span></h2>
+                <p class="section-desc">Generate production-ready Dockerfiles for any tech stack.</p>
+            </div>
+            <div class="generator-workspace">
+                <div class="generator-form">
+                    <div class="form-group">
+                        <label><i class="fas fa-code"></i> Technology Stack</label>
+                        <select id="dockerTech">
+                            <option value="node">Node.js</option>
+                            <option value="python">Python</option>
+                            <option value="java">Java (Maven)</option>
+                            <option value="go">Go</option>
+                            <option value="react">React (Static)</option>
+                            <option value="nginx">Nginx Static</option>
+                            <option value="php">PHP (Apache)</option>
+                            <option value="ruby">Ruby on Rails</option>
+                            <option value="dotnet">.NET Core</option>
+                            <option value="rust">Rust</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label><i class="fas fa-tag"></i> Base Image Version</label>
+                        <input type="text" id="dockerVersion" placeholder="e.g., 18-alpine, 3.11-slim" value="alpine">
+                    </div>
+                    <div class="form-group">
+                        <label><i class="fas fa-door-open"></i> Expose Port</label>
+                        <input type="number" id="dockerPort" placeholder="e.g., 3000, 8080" value="3000">
+                    </div>
+                    <div class="form-group">
+                        <label><i class="fas fa-folder"></i> Working Directory</label>
+                        <input type="text" id="dockerWorkdir" placeholder="/app" value="/app">
+                    </div>
+                    <div class="form-row">
+                        <div class="form-check">
+                            <input type="checkbox" id="dockerMultistage" checked>
+                            <label for="dockerMultistage">Multi-stage Build</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="checkbox" id="dockerNonroot" checked>
+                            <label for="dockerNonroot">Non-root User</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="checkbox" id="dockerHealthcheck" checked>
+                            <label for="dockerHealthcheck">Healthcheck</label>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary full-width" id="generateDockerfile">
+                        <i class="fab fa-docker"></i> Generate Dockerfile
+                    </button>
+                </div>
+                <div class="generator-output">
+                    <div class="editor-header">
+                        <span><i class="fab fa-docker"></i> Generated Dockerfile</span>
+                        <div class="header-actions">
+                            <button class="copy-btn" data-target="dockerfileOutput"><i class="fas fa-copy"></i> Copy</button>
+                            <button class="download-btn" id="downloadDockerfile"><i class="fas fa-download"></i> Download</button>
+                        </div>
+                    </div>
+                    <textarea id="dockerfileOutput" class="editor-textarea code-output" readonly spellcheck="false" placeholder="Click 'Generate Dockerfile' to see the result..."></textarea>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DOCKER COMPOSE GENERATOR -->
+    <section id="compose" class="section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge"><i class="fas fa-layer-group"></i> Compose</span>
+                <h2 class="section-title">Docker Compose <span class="gradient-text">Generator</span></h2>
+                <p class="section-desc">Build docker-compose.yml with multiple services visually.</p>
+            </div>
+            <div class="compose-workspace">
+                <div class="compose-services" id="composeServices">
+                    <div class="service-card" data-service="0">
+                        <div class="service-header">
+                            <h4><i class="fas fa-cube"></i> Service 1</h4>
+                            <button class="remove-service" title="Remove Service"><i class="fas fa-times"></i></button>
+                        </div>
+                        <div class="service-body">
+                            <div class="form-group">
+                                <label>Service Name</label>
+                                <input type="text" class="svc-name" placeholder="e.g., web" value="web">
+                            </div>
+                            <div class="form-group">
+                                <label>Image</label>
+                                <input type="text" class="svc-image" placeholder="e.g., nginx:latest" value="nginx:latest">
+                            </div>
+                            <div class="form-group">
+                                <label>Ports (host:container)</label>
+                                <input type="text" class="svc-ports" placeholder="e.g., 80:80" value="80:80">
+                            </div>
+                            <div class="form-group">
+                                <label>Environment Variables</label>
+                                <input type="text" class="svc-env" placeholder="KEY=value,KEY2=value2">
+                            </div>
+                            <div class="form-group">
+                                <label>Volumes</label>
+                                <input type="text" class="svc-volumes" placeholder="./data:/data">
+                            </div>
+                            <div class="form-group">
+                                <label>Depends On</label>
+                                <input type="text" class="svc-depends" placeholder="e.g., db, redis">
+                            </div>
+                            <div class="form-check">
+                                <input type="checkbox" class="svc-restart" checked>
+                                <label>Restart Always</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="compose-actions">
+                    <button class="btn btn-outline" id="addService">
+                        <i class="fas fa-plus"></i> Add Service
+                    </button>
+                    <button class="btn btn-outline" id="addPresetDb">
+                        <i class="fas fa-database"></i> Add MySQL
+                    </button>
+                    <button class="btn btn-outline" id="addPresetRedis">
+                        <i class="fas fa-memory"></i> Add Redis
+                    </button>
+                    <button class="btn btn-outline" id="addPresetMongo">
+                        <i class="fas fa-leaf"></i> Add MongoDB
+                    </button>
+                    <button class="btn btn-primary" id="generateCompose">
+                        <i class="fas fa-cogs"></i> Generate Compose
+                    </button>
+                </div>
+                <div class="generator-output">
+                    <div class="editor-header">
+                        <span><i class="fas fa-file-code"></i> docker-compose.yml</span>
+                        <div class="header-actions">
+                            <button class="copy-btn" data-target="composeOutput"><i class="fas fa-copy"></i> Copy</button>
+                            <button class="download-btn" id="downloadCompose"><i class="fas fa-download"></i> Download</button>
+                        </div>
+                    </div>
+                    <textarea id="composeOutput" class="editor-textarea code-output" readonly spellcheck="false" placeholder="Click 'Generate Compose' to see the result..."></textarea>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BASE64 ENCODER/DECODER -->
+    <section id="base64" class="section section-dark">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge"><i class="fas fa-lock"></i> Encoding</span>
+                <h2 class="section-title">Base64 <span class="gradient-text">Encoder</span> / Decoder</h2>
+                <p class="section-desc">Encode and decode Base64 strings. Perfect for K8s secrets.</p>
+            </div>
+            <div class="base64-workspace">
+                <div class="base64-panel">
+                    <div class="editor-header">
+                        <span><i class="fas fa-font"></i> Plain Text</span>
+                        <button class="copy-btn" data-target="base64Input"><i class="fas fa-copy"></i></button>
+                    </div>
+                    <textarea id="base64Input" class="editor-textarea" placeholder="Enter text to encode..." spellcheck="false"></textarea>
+                </div>
+                <div class="converter-controls vertical">
+                    <button class="convert-btn" id="base64Encode">
+                        <i class="fas fa-arrow-down"></i>
+                        <span>Encode</span>
+                    </button>
+                    <button class="convert-btn" id="base64Decode">
+                        <i class="fas fa-arrow-up"></i>
+                        <span>Decode</span>
+                    </button>
+                    <button class="convert-btn" id="base64K8s">
+                        <i class="fas fa-dharmachakra"></i>
+                        <span>K8s Secret</span>
+                    </button>
+                </div>
+                <div class="base64-panel">
+                    <div class="editor-header">
+                        <span><i class="fas fa-lock"></i> Base64 Output</span>
+                        <button class="copy-btn" data-target="base64Output"><i class="fas fa-copy"></i></button>
+                    </div>
+                    <textarea id="base64Output" class="editor-textarea" placeholder="Encoded/Decoded result..." readonly spellcheck="false"></textarea>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PASSWORD GENERATOR -->
+    <section id="password" class="section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge"><i class="fas fa-key"></i> Security</span>
+                <h2 class="section-title">Password & Secret <span class="gradient-text">Generator</span></h2>
+                <p class="section-desc">Generate secure passwords, API keys, and secrets.</p>
+            </div>
+            <div class="password-workspace">
+                <div class="password-config">
+                    <div class="form-group">
+                        <label><i class="fas fa-ruler"></i> Length: <span id="pwdLengthValue">24</span></label>
+                        <input type="range" id="pwdLength" min="8" max="128" value="24">
+                    </div>
+                    <div class="form-row">
+                        <div class="form-check">
+                            <input type="checkbox" id="pwdUpper" checked>
+                            <label for="pwdUpper">Uppercase (A-Z)</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="checkbox" id="pwdLower" checked>
+                            <label for="pwdLower">Lowercase (a-z)</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="checkbox" id="pwdNumbers" checked>
+                            <label for="pwdNumbers">Numbers (0-9)</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="checkbox" id="pwdSymbols" checked>
+                            <label for="pwdSymbols">Symbols (!@#$)</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label><i class="fas fa-list"></i> Generate Count</label>
+                        <select id="pwdCount">
+                            <option value="1">1 Password</option>
+                            <option value="5" selected>5 Passwords</option>
+                            <option value="10">10 Passwords</option>
+                            <option value="20">20 Passwords</option>
+                        </select>
+                    </div>
+                    <div class="password-presets">
+                        <button class="preset-btn" data-preset="api">API Key</button>
+                        <button class="preset-btn" data-preset="db">DB Password</button>
+                        <button class="preset-btn" data-preset="jwt">JWT Secret</button>
+                        <button class="preset-btn" data-preset="k8s">K8s Secret</button>
+                        <button class="preset-btn" data-preset="uuid">UUID</button>
+                    </div>
+                    <button class="btn btn-primary full-width" id="generatePasswords">
+                        <i class="fas fa-key"></i> Generate Passwords
+                    </button>
+                </div>
+                <div class="password-output" id="passwordOutput">
+                    <div class="result-placeholder">
+                        <i class="fas fa-key"></i>
+                        <p>Click Generate to create passwords</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GITIGNORE GENERATOR -->
+    <section id="gitignore" class="section section-dark">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge"><i class="fab fa-git-alt"></i> Git</span>
+                <h2 class="section-title">.gitignore <span class="gradient-text">Generator</span></h2>
+                <p class="section-desc">Create .gitignore files for any technology stack.</p>
+            </div>
+            <div class="gitignore-workspace">
+                <div class="gitignore-options">
+                    <h4><i class="fas fa-check-square"></i> Select Technologies:</h4>
+                    <div class="tech-grid" id="techGrid">
+                        <label class="tech-option">
+                            <input type="checkbox" value="node" checked> <span><i class="fab fa-node-js"></i> Node.js</span>
+                        </label>
+                        <label class="tech-option">
+                            <input type="checkbox" value="python"> <span><i class="fab fa-python"></i> Python</span>
+                        </label>
+                        <label class="tech-option">
+                            <input type="checkbox" value="java"> <span><i class="fab fa-java"></i> Java</span>
+                        </label>
+                        <label class="tech-option">
+                            <input type="checkbox" value="react"> <span><i class="fab fa-react"></i> React</span>
+                        </label>
+                        <label class="tech-option">
+                            <input type="checkbox" value="go"> <span><i class="fas fa-code"></i> Go</span>
+                        </label>
+                        <label class="tech-option">
+                            <input type="checkbox" value="docker" checked> <span><i class="fab fa-docker"></i> Docker</span>
+                        </label>
+                        <label class="tech-option">
+                            <input type="checkbox" value="terraform"> <span><i class="fas fa-cloud"></i> Terraform</span>
+                        </label>
+                        <label class="tech-option">
+                            <input type="checkbox" value="vscode" checked> <span><i class="fas fa-code"></i> VS Code</span>
+                        </label>
+                        <label class="tech-option">
+                            <input type="checkbox" value="macos"> <span><i class="fab fa-apple"></i> macOS</span>
+                        </label>
+                        <label class="tech-option">
+                            <input type="checkbox" value="windows" checked> <span><i class="fab fa-windows"></i> Windows</span>
+                        </label>
+                        <label class="tech-option">
+                            <input type="checkbox" value="linux"> <span><i class="fab fa-linux"></i> Linux</span>
+                        </label>
+                        <label class="tech-option">
+                            <input type="checkbox" value="env" checked> <span><i class="fas fa-key"></i> .env Files</span>
+                        </label>
+                        <label class="tech-option">
+                            <input type="checkbox" value="rust"> <span><i class="fas fa-cog"></i> Rust</span>
+                        </label>
+                        <label class="tech-option">
+                            <input type="checkbox" value="php"> <span><i class="fab fa-php"></i> PHP</span>
+                        </label>
+                        <label class="tech-option">
+                            <input type="checkbox" value="ruby"> <span><i class="fas fa-gem"></i> Ruby</span>
+                        </label>
+                        <label class="tech-option">
+                            <input type="checkbox" value="jetbrains"> <span><i class="fas fa-brain"></i> JetBrains</span>
+                        </label>
+                    </div>
+                    <button class="btn btn-primary full-width" id="generateGitignore">
+                        <i class="fab fa-git-alt"></i> Generate .gitignore
+                    </button>
+                </div>
+                <div class="generator-output">
+                    <div class="editor-header">
+                        <span><i class="fas fa-file"></i> .gitignore</span>
+                        <div class="header-actions">
+                            <button class="copy-btn" data-target="gitignoreOutput"><i class="fas fa-copy"></i> Copy</button>
+                            <button class="download-btn" id="downloadGitignore"><i class="fas fa-download"></i> Download</button>
+                        </div>
+                    </div>
+                    <textarea id="gitignoreOutput" class="editor-textarea code-output" readonly spellcheck="false" placeholder="Select technologies and click Generate..."></textarea>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- NGINX CONFIG GENERATOR -->
+    <section id="nginx" class="section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge"><i class="fas fa-server"></i> Server</span>
+                <h2 class="section-title">Nginx Config <span class="gradient-text">Generator</span></h2>
+                <p class="section-desc">Generate Nginx configurations for reverse proxy, static sites & more.</p>
+            </div>
+            <div class="generator-workspace">
+                <div class="generator-form">
+                    <div class="form-group">
+                        <label><i class="fas fa-cog"></i> Configuration Type</label>
+                        <select id="nginxType">
+                            <option value="reverse-proxy">Reverse Proxy</option>
+                            <option value="static">Static Site</option>
+                            <option value="spa">SPA (React/Vue/Angular)</option>
+                            <option value="load-balancer">Load Balancer</option>
+                            <option value="php">PHP (FastCGI)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label><i class="fas fa-globe"></i> Server Name (Domain)</label>
+                        <input type="text" id="nginxDomain" placeholder="example.com" value="example.com">
+                    </div>
+                    <div class="form-group">
+                        <label><i class="fas fa-door-open"></i> Listen Port</label>
+                        <input type="number" id="nginxPort" placeholder="80" value="80">
+                    </div>
+                    <div class="form-group" id="nginxUpstreamGroup">
+                        <label><i class="fas fa-arrow-right"></i> Upstream Server</label>
+                        <input type="text" id="nginxUpstream" placeholder="localhost:3000" value="localhost:3000">
+                    </div>
+                    <div class="form-group" id="nginxRootGroup" style="display:none;">
+                        <label><i class="fas fa-folder"></i> Root Directory</label>
+                        <input type="text" id="nginxRoot" placeholder="/var/www/html" value="/var/www/html">
+                    </div>
+                    <div class="form-row">
+                        <div class="form-check">
+                            <input type="checkbox" id="nginxSSL">
+                            <label for="nginxSSL">Enable SSL (HTTPS)</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="checkbox" id="nginxGzip" checked>
+                            <label for="nginxGzip">Enable Gzip</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="checkbox" id="nginxLogs" checked>
+                            <label for="nginxLogs">Access Logs</label>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary full-width" id="generateNginx">
+                        <i class="fas fa-server"></i> Generate Config
+                    </button>
+                </div>
+                <div class="generator-output">
+                    <div class="editor-header">
+                        <span><i class="fas fa-file-code"></i> nginx.conf</span>
+                        <div class="header-actions">
+                            <button class="copy-btn" data-target="nginxOutput"><i class="fas fa-copy"></i> Copy</button>
+                            <button class="download-btn" id="downloadNginx"><i class="fas fa-download"></i> Download</button>
+                        </div>
+                    </div>
+                    <textarea id="nginxOutput" class="editor-textarea code-output" readonly spellcheck="false" placeholder="Click 'Generate Config' to see the result..."></textarea>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SUBNET CALCULATOR -->
+    <section id="subnet" class="section section-dark">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge"><i class="fas fa-network-wired"></i> Network</span>
+                <h2 class="section-title">Subnet <span class="gradient-text">Calculator</span></h2>
+                <p class="section-desc">Calculate network details from IP address and CIDR notation.</p>
+            </div>
+            <div class="subnet-workspace">
+                <div class="subnet-input-area">
+                    <div class="form-group">
+                        <label><i class="fas fa-map-marker-alt"></i> IP Address</label>
+                        <input type="text" id="subnetIP" placeholder="192.168.1.0" value="192.168.1.0">
+                    </div>
+                    <div class="form-group">
+                        <label><i class="fas fa-slash"></i> CIDR / Prefix</label>
+                        <div class="cidr-slider">
+                            <input type="range" id="subnetCIDR" min="0" max="32" value="24">
+                            <span id="cidrValue">/24</span>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary full-width" id="calculateSubnet">
+                        <i class="fas fa-calculator"></i> Calculate
+                    </button>
+                </div>
+                <div class="subnet-results" id="subnetResults">
+                    <div class="result-placeholder">
+                        <i class="fas fa-network-wired"></i>
+                        <p>Enter IP and CIDR to calculate</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CRON EXPRESSION BUILDER -->
+    <section id="cron" class="section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge"><i class="fas fa-clock"></i> Scheduling</span>
+                <h2 class="section-title">Cron Expression <span class="gradient-text">Builder</span></h2>
+                <p class="section-desc">Build and understand cron expressions visually.</p>
+            </div>
+            <div class="cron-workspace">
+                <div class="cron-builder">
+                    <div class="cron-fields">
+                        <div class="cron-field">
+                            <label>Minute</label>
+                            <input type="text" id="cronMinute" value="*" class="cron-input">
+                            <span class="cron-hint">0-59</span>
+                        </div>
+                        <div class="cron-field">
+                            <label>Hour</label>
+                            <input type="text" id="cronHour" value="*" class="cron-input">
+                            <span class="cron-hint">0-23</span>
+                        </div>
+                        <div class="cron-field">
+                            <label>Day (Month)</label>
+                            <input type="text" id="cronDom" value="*" class="cron-input">
+                            <span class="cron-hint">1-31</span>
+                        </div>
+                        <div class="cron-field">
+                            <label>Month</label>
+                            <input type="text" id="cronMonth" value="*" class="cron-input">
+                            <span class="cron-hint">1-12</span>
+                        </div>
+                        <div class="cron-field">
+                            <label>Day (Week)</label>
+                            <input type="text" id="cronDow" value="*" class="cron-input">
+                            <span class="cron-hint">0-7 (0,7=Sun)</span>
+                        </div>
+                    </div>
+                    <div class="cron-expression">
+                        <label>Expression:</label>
+                        <div class="cron-display" id="cronExpression">* * * * *</div>
+                        <button class="copy-btn" data-clipboard="* * * * *" id="copyCron"><i class="fas fa-copy"></i></button>
+                    </div>
+                    <div class="cron-presets">
+                        <h4>Common Presets:</h4>
+                        <div class="preset-grid">
+                            <button class="preset-btn" data-cron="* * * * *">Every Minute</button>
+                            <button class="preset-btn" data-cron="*/5 * * * *">Every 5 Min</button>
+                            <button class="preset-btn" data-cron="0 * * * *">Every Hour</button>
+                            <button class="preset-btn" data-cron="0 0 * * *">Daily Midnight</button>
+                            <button class="preset-btn" data-cron="0 6 * * *">Daily 6 AM</button>
+                            <button class="preset-btn" data-cron="0 0 * * 0">Weekly Sunday</button>
+                            <button class="preset-btn" data-cron="0 0 1 * *">Monthly 1st</button>
+                            <button class="preset-btn" data-cron="0 0 1 1 *">Yearly Jan 1</button>
+                            <button class="preset-btn" data-cron="*/30 * * * *">Every 30 Min</button>
+                            <button class="preset-btn" data-cron="0 9-17 * * 1-5">Weekdays 9-5</button>
+                        </div>
+                    </div>
+                    <div class="cron-description" id="cronDescription">
+                        <i class="fas fa-info-circle"></i>
+                        <span>Runs every minute</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- JWT DECODER -->
+    <section id="jwt" class="section section-dark">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge"><i class="fas fa-id-badge"></i> Security</span>
+                <h2 class="section-title">JWT <span class="gradient-text">Decoder</span></h2>
+                <p class="section-desc">Decode and inspect JWT tokens. View header, payload, and expiry.</p>
+            </div>
+            <div class="jwt-workspace">
+                <div class="jwt-input-area">
+                    <div class="editor-header">
+                        <span><i class="fas fa-key"></i> JWT Token</span>
+                        <button class="ws-btn" id="jwtSample"><i class="fas fa-file-import"></i> Sample</button>
+                    </div>
+                    <textarea id="jwtInput" class="editor-textarea" placeholder="Paste your JWT token here...
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkhpdGVzaCIsImlhdCI6MTUxNjIzOTAyMn0..." spellcheck="false"></textarea>
+                    <button class="btn btn-primary full-width" id="decodeJwt">
+                        <i class="fas fa-unlock"></i> Decode JWT
+                    </button>
+                </div>
+                <div class="jwt-results" id="jwtResults">
+                    <div class="result-placeholder">
+                        <i class="fas fa-id-badge"></i>
+                        <p>Paste a JWT token and click Decode</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- REGEX TESTER -->
+    <section id="regex" class="section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge"><i class="fas fa-search"></i> Utility</span>
+                <h2 class="section-title">Regex <span class="gradient-text">Tester</span></h2>
+                <p class="section-desc">Test regular expressions with real-time highlighting.</p>
+            </div>
+            <div class="regex-workspace">
+                <div class="regex-input-area">
+                    <div class="form-group">
+                        <label><i class="fas fa-search"></i> Regular Expression</label>
+                        <div class="regex-field">
+                            <span class="regex-delim">/</span>
+                            <input type="text" id="regexPattern" placeholder="Enter regex pattern" value="(\w+)@(\w+)\.(\w+)">
+                            <span class="regex-delim">/</span>
+                            <input type="text" id="regexFlags" placeholder="flags" value="gi" class="regex-flags">
+                        </div>
+                    </div>
+                    <div class="regex-presets">
+                        <button class="preset-btn" data-regex="[\w.-]+@[\w.-]+\.\w+" data-flags="gi">Email</button>
+                        <button class="preset-btn" data-regex="https?://[\w.-]+(?:\.[\w]+)+[\w.,@?^=%&:/~+#-]*" data-flags="gi">URL</button>
+                        <button class="preset-btn" data-regex="\b\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\b" data-flags="g">IPv4</button>
+                        <button class="preset-btn" data-regex="^\+?[\d\s-]{10,}" data-flags="gm">Phone</button>
+                        <button class="preset-btn" data-regex="\b[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}\b" data-flags="g">UUID</button>
+                    </div>
+                    <div class="form-group">
+                        <label><i class="fas fa-align-left"></i> Test String</label>
+                        <textarea id="regexTestString" class="editor-textarea" placeholder="Enter text to test against..." spellcheck="false">Contact us at admin@example.com or support@devops.io for help.</textarea>
+                    </div>
+                </div>
+                <div class="regex-results" id="regexResults">
+                    <div class="result-placeholder">
+                        <i class="fas fa-search"></i>
+                        <p>Enter a regex pattern to see matches</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section id="about" class="section section-dark">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge"><i class="fas fa-info-circle"></i> About</span>
+                <h2 class="section-title">About This <span class="gradient-text">Project</span></h2>
+            </div>
+            <div class="about-content">
+                <div class="about-card">
+                    <div class="about-icon"><i class="fas fa-user"></i></div>
+                    <h3>Built By</h3>
+                    <p class="about-name">Hitesh</p>
+                    <p>DevOps Engineer & Developer</p>
+                </div>
+                <div class="about-card">
+                    <div class="about-icon"><i class="fas fa-code-branch"></i></div>
+                    <h3>Tech Stack</h3>
+                    <p>HTML5, CSS3, JavaScript</p>
+                    <p>No frameworks, pure vanilla</p>
+                </div>
+                <div class="about-card">
+                    <div class="about-icon"><i class="fas fa-rocket"></i></div>
+                    <h3>Features</h3>
+                    <p>12+ DevOps Tools</p>
+                    <p>100% Client-side, No backend</p>
+                </div>
+                <div class="about-card">
+                    <div class="about-icon"><i class="fas fa-balance-scale"></i></div>
+                    <h3>License</h3>
+                    <p>MIT License</p>
+                    <p>Open Source & Free</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <i class="fas fa-cube"></i> DevOps<span class="highlight">Hub</span>
+                </div>
+                <p>Built with  by Hitesh | Open Source DevOps Toolkit</p>
+                <div class="footer-links">
+                    <a href="https://github.com/yourusername" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="https://linkedin.com/in/yourusername" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="mailto:your@email.com"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- TOAST NOTIFICATION -->
+    <div id="toast" class="toast">
+        <i class="fas fa-check-circle"></i>
+        <span id="toastMessage">Copied to clipboard!</span>
+    </div>
+
+    <!-- SCROLL TO TOP -->
+    <button id="scrollTop" class="scroll-top" title="Go to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- JS Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.min.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>
