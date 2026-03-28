@@ -1,13 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DevOps Utility Hub | By Hitesh & Tirth</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
 </head>
+
 <body>
 
     <!-- LOADING SCREEN -->
@@ -339,7 +343,8 @@ Example:
                         <span><i class="fas fa-file-code"></i> YAML</span>
                         <button class="copy-btn" data-target="converterYaml"><i class="fas fa-copy"></i></button>
                     </div>
-                    <textarea id="converterYaml" class="editor-textarea" placeholder="Paste YAML here..." spellcheck="false"></textarea>
+                    <textarea id="converterYaml" class="editor-textarea" placeholder="Paste YAML here..."
+                        spellcheck="false"></textarea>
                 </div>
                 <div class="converter-controls">
                     <button class="convert-btn" id="yamlToJson" title="YAML to JSON">
@@ -360,7 +365,8 @@ Example:
                         <span><i class="fas fa-file-alt"></i> JSON</span>
                         <button class="copy-btn" data-target="converterJson"><i class="fas fa-copy"></i></button>
                     </div>
-                    <textarea id="converterJson" class="editor-textarea" placeholder="Paste JSON here..." spellcheck="false"></textarea>
+                    <textarea id="converterJson" class="editor-textarea" placeholder="Paste JSON here..."
+                        spellcheck="false"></textarea>
                 </div>
             </div>
         </div>
@@ -425,11 +431,14 @@ Example:
                     <div class="editor-header">
                         <span><i class="fab fa-docker"></i> Generated Dockerfile</span>
                         <div class="header-actions">
-                            <button class="copy-btn" data-target="dockerfileOutput"><i class="fas fa-copy"></i> Copy</button>
-                            <button class="download-btn" id="downloadDockerfile"><i class="fas fa-download"></i> Download</button>
+                            <button class="copy-btn" data-target="dockerfileOutput"><i class="fas fa-copy"></i>
+                                Copy</button>
+                            <button class="download-btn" id="downloadDockerfile"><i class="fas fa-download"></i>
+                                Download</button>
                         </div>
                     </div>
-                    <textarea id="dockerfileOutput" class="editor-textarea code-output" readonly spellcheck="false" placeholder="Click 'Generate Dockerfile' to see the result..."></textarea>
+                    <textarea id="dockerfileOutput" class="editor-textarea code-output" readonly spellcheck="false"
+                        placeholder="Click 'Generate Dockerfile' to see the result..."></textarea>
                 </div>
             </div>
         </div>
@@ -457,7 +466,8 @@ Example:
                             </div>
                             <div class="form-group">
                                 <label>Image</label>
-                                <input type="text" class="svc-image" placeholder="e.g., nginx:latest" value="nginx:latest">
+                                <input type="text" class="svc-image" placeholder="e.g., nginx:latest"
+                                    value="nginx:latest">
                             </div>
                             <div class="form-group">
                                 <label>Ports (host:container)</label>
@@ -503,11 +513,14 @@ Example:
                     <div class="editor-header">
                         <span><i class="fas fa-file-code"></i> docker-compose.yml</span>
                         <div class="header-actions">
-                            <button class="copy-btn" data-target="composeOutput"><i class="fas fa-copy"></i> Copy</button>
-                            <button class="download-btn" id="downloadCompose"><i class="fas fa-download"></i> Download</button>
+                            <button class="copy-btn" data-target="composeOutput"><i class="fas fa-copy"></i>
+                                Copy</button>
+                            <button class="download-btn" id="downloadCompose"><i class="fas fa-download"></i>
+                                Download</button>
                         </div>
                     </div>
-                    <textarea id="composeOutput" class="editor-textarea code-output" readonly spellcheck="false" placeholder="Click 'Generate Compose' to see the result..."></textarea>
+                    <textarea id="composeOutput" class="editor-textarea code-output" readonly spellcheck="false"
+                        placeholder="Click 'Generate Compose' to see the result..."></textarea>
                 </div>
             </div>
         </div>
@@ -527,7 +540,8 @@ Example:
                         <span><i class="fas fa-font"></i> Plain Text</span>
                         <button class="copy-btn" data-target="base64Input"><i class="fas fa-copy"></i></button>
                     </div>
-                    <textarea id="base64Input" class="editor-textarea" placeholder="Enter text to encode..." spellcheck="false"></textarea>
+                    <textarea id="base64Input" class="editor-textarea" placeholder="Enter text to encode..."
+                        spellcheck="false"></textarea>
                 </div>
                 <div class="converter-controls vertical">
                     <button class="convert-btn" id="base64Encode">
@@ -548,7 +562,8 @@ Example:
                         <span><i class="fas fa-lock"></i> Base64 Output</span>
                         <button class="copy-btn" data-target="base64Output"><i class="fas fa-copy"></i></button>
                     </div>
-                    <textarea id="base64Output" class="editor-textarea" placeholder="Encoded/Decoded result..." readonly spellcheck="false"></textarea>
+                    <textarea id="base64Output" class="editor-textarea" placeholder="Encoded/Decoded result..." readonly
+                        spellcheck="false"></textarea>
                 </div>
             </div>
         </div>
@@ -629,7 +644,8 @@ Example:
                     <h4><i class="fas fa-check-square"></i> Select Technologies:</h4>
                     <div class="tech-grid" id="techGrid">
                         <label class="tech-option">
-                            <input type="checkbox" value="node" checked> <span><i class="fab fa-node-js"></i> Node.js</span>
+                            <input type="checkbox" value="node" checked> <span><i class="fab fa-node-js"></i>
+                                Node.js</span>
                         </label>
                         <label class="tech-option">
                             <input type="checkbox" value="python"> <span><i class="fab fa-python"></i> Python</span>
@@ -644,25 +660,30 @@ Example:
                             <input type="checkbox" value="go"> <span><i class="fas fa-code"></i> Go</span>
                         </label>
                         <label class="tech-option">
-                            <input type="checkbox" value="docker" checked> <span><i class="fab fa-docker"></i> Docker</span>
+                            <input type="checkbox" value="docker" checked> <span><i class="fab fa-docker"></i>
+                                Docker</span>
                         </label>
                         <label class="tech-option">
-                            <input type="checkbox" value="terraform"> <span><i class="fas fa-cloud"></i> Terraform</span>
+                            <input type="checkbox" value="terraform"> <span><i class="fas fa-cloud"></i>
+                                Terraform</span>
                         </label>
                         <label class="tech-option">
-                            <input type="checkbox" value="vscode" checked> <span><i class="fas fa-code"></i> VS Code</span>
+                            <input type="checkbox" value="vscode" checked> <span><i class="fas fa-code"></i> VS
+                                Code</span>
                         </label>
                         <label class="tech-option">
                             <input type="checkbox" value="macos"> <span><i class="fab fa-apple"></i> macOS</span>
                         </label>
                         <label class="tech-option">
-                            <input type="checkbox" value="windows" checked> <span><i class="fab fa-windows"></i> Windows</span>
+                            <input type="checkbox" value="windows" checked> <span><i class="fab fa-windows"></i>
+                                Windows</span>
                         </label>
                         <label class="tech-option">
                             <input type="checkbox" value="linux"> <span><i class="fab fa-linux"></i> Linux</span>
                         </label>
                         <label class="tech-option">
-                            <input type="checkbox" value="env" checked> <span><i class="fas fa-key"></i> .env Files</span>
+                            <input type="checkbox" value="env" checked> <span><i class="fas fa-key"></i> .env
+                                Files</span>
                         </label>
                         <label class="tech-option">
                             <input type="checkbox" value="rust"> <span><i class="fas fa-cog"></i> Rust</span>
@@ -674,7 +695,8 @@ Example:
                             <input type="checkbox" value="ruby"> <span><i class="fas fa-gem"></i> Ruby</span>
                         </label>
                         <label class="tech-option">
-                            <input type="checkbox" value="jetbrains"> <span><i class="fas fa-brain"></i> JetBrains</span>
+                            <input type="checkbox" value="jetbrains"> <span><i class="fas fa-brain"></i>
+                                JetBrains</span>
                         </label>
                     </div>
                     <button class="btn btn-primary full-width" id="generateGitignore">
@@ -685,11 +707,14 @@ Example:
                     <div class="editor-header">
                         <span><i class="fas fa-file"></i> .gitignore</span>
                         <div class="header-actions">
-                            <button class="copy-btn" data-target="gitignoreOutput"><i class="fas fa-copy"></i> Copy</button>
-                            <button class="download-btn" id="downloadGitignore"><i class="fas fa-download"></i> Download</button>
+                            <button class="copy-btn" data-target="gitignoreOutput"><i class="fas fa-copy"></i>
+                                Copy</button>
+                            <button class="download-btn" id="downloadGitignore"><i class="fas fa-download"></i>
+                                Download</button>
                         </div>
                     </div>
-                    <textarea id="gitignoreOutput" class="editor-textarea code-output" readonly spellcheck="false" placeholder="Select technologies and click Generate..."></textarea>
+                    <textarea id="gitignoreOutput" class="editor-textarea code-output" readonly spellcheck="false"
+                        placeholder="Select technologies and click Generate..."></textarea>
                 </div>
             </div>
         </div>
@@ -753,10 +778,12 @@ Example:
                         <span><i class="fas fa-file-code"></i> nginx.conf</span>
                         <div class="header-actions">
                             <button class="copy-btn" data-target="nginxOutput"><i class="fas fa-copy"></i> Copy</button>
-                            <button class="download-btn" id="downloadNginx"><i class="fas fa-download"></i> Download</button>
+                            <button class="download-btn" id="downloadNginx"><i class="fas fa-download"></i>
+                                Download</button>
                         </div>
                     </div>
-                    <textarea id="nginxOutput" class="editor-textarea code-output" readonly spellcheck="false" placeholder="Click 'Generate Config' to see the result..."></textarea>
+                    <textarea id="nginxOutput" class="editor-textarea code-output" readonly spellcheck="false"
+                        placeholder="Click 'Generate Config' to see the result..."></textarea>
                 </div>
             </div>
         </div>
@@ -837,7 +864,8 @@ Example:
                     <div class="cron-expression">
                         <label>Expression:</label>
                         <div class="cron-display" id="cronExpression">* * * * *</div>
-                        <button class="copy-btn" data-clipboard="* * * * *" id="copyCron"><i class="fas fa-copy"></i></button>
+                        <button class="copy-btn" data-clipboard="* * * * *" id="copyCron"><i
+                                class="fas fa-copy"></i></button>
                     </div>
                     <div class="cron-presets">
                         <h4>Common Presets:</h4>
@@ -878,7 +906,8 @@ Example:
                         <button class="ws-btn" id="jwtSample"><i class="fas fa-file-import"></i> Sample</button>
                     </div>
                     <textarea id="jwtInput" class="editor-textarea" placeholder="Paste your JWT token here...
-eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkhpdGVzaCIsImlhdCI6MTUxNjIzOTAyMn0..." spellcheck="false"></textarea>
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkhpdGVzaCIsImlhdCI6MTUxNjIzOTAyMn0..."
+                        spellcheck="false"></textarea>
                     <button class="btn btn-primary full-width" id="decodeJwt">
                         <i class="fas fa-unlock"></i> Decode JWT
                     </button>
@@ -907,21 +936,28 @@ eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkhpdGV
                         <label><i class="fas fa-search"></i> Regular Expression</label>
                         <div class="regex-field">
                             <span class="regex-delim">/</span>
-                            <input type="text" id="regexPattern" placeholder="Enter regex pattern" value="(\w+)@(\w+)\.(\w+)">
+                            <input type="text" id="regexPattern" placeholder="Enter regex pattern"
+                                value="(\w+)@(\w+)\.(\w+)">
                             <span class="regex-delim">/</span>
                             <input type="text" id="regexFlags" placeholder="flags" value="gi" class="regex-flags">
                         </div>
                     </div>
                     <div class="regex-presets">
                         <button class="preset-btn" data-regex="[\w.-]+@[\w.-]+\.\w+" data-flags="gi">Email</button>
-                        <button class="preset-btn" data-regex="https?://[\w.-]+(?:\.[\w]+)+[\w.,@?^=%&:/~+#-]*" data-flags="gi">URL</button>
-                        <button class="preset-btn" data-regex="\b\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\b" data-flags="g">IPv4</button>
+                        <button class="preset-btn" data-regex="https?://[\w.-]+(?:\.[\w]+)+[\w.,@?^=%&:/~+#-]*"
+                            data-flags="gi">URL</button>
+                        <button class="preset-btn" data-regex="\b\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\b"
+                            data-flags="g">IPv4</button>
                         <button class="preset-btn" data-regex="^\+?[\d\s-]{10,}" data-flags="gm">Phone</button>
-                        <button class="preset-btn" data-regex="\b[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}\b" data-flags="g">UUID</button>
+                        <button class="preset-btn"
+                            data-regex="\b[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}\b"
+                            data-flags="g">UUID</button>
                     </div>
                     <div class="form-group">
                         <label><i class="fas fa-align-left"></i> Test String</label>
-                        <textarea id="regexTestString" class="editor-textarea" placeholder="Enter text to test against..." spellcheck="false">Contact us at admin@example.com or support@devops.io for help.</textarea>
+                        <textarea id="regexTestString" class="editor-textarea"
+                            placeholder="Enter text to test against..."
+                            spellcheck="false">Contact us at admin@example.com or support@devops.io for help.</textarea>
                     </div>
                 </div>
                 <div class="regex-results" id="regexResults">
@@ -945,7 +981,7 @@ eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkhpdGV
                 <div class="about-card">
                     <div class="about-icon"><i class="fas fa-user"></i></div>
                     <h3>Built By</h3>
-                    <p class="about-name">Hitesh</p>
+                    <p class="about-name">Hitesh & Tirth</p>
                     <p>DevOps Engineer & Developer</p>
                 </div>
                 <div class="about-card">
@@ -997,4 +1033,5 @@ eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkhpdGV
     <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.min.js"></script>
     <script src="js/script.js"></script>
 </body>
+
 </html>
