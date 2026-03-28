@@ -55,11 +55,4 @@ Since this toolkit operates entirely client-side, running it locally is incredib
 - **JavaScript (Vanilla):** Dynamic DOM manipulation and tool logic, completely independent of external bloated JS libraries!
 
 ---
-
-## 👨‍💻 Authors
-
-Built by **[Hitesh](https://github.com/hitesh0106)** & **[Tirth](https://github.com/tirthpatel90)**
-
----
-
-*Found a bug or got an idea for a new tool? Feel free to open an issue or submit a PR on GitHub!*
+Built by **Hitesh** **Tirth** 
